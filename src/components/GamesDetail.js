@@ -16,8 +16,8 @@ class GameDetail extends React.Component {
     const _id = this.props.match.params._id;
     const game = this.props.games.find((item) => {
       if(item._id === _id){
-        this.setState({game: item})
         return item
+        this.setState({game: item})
       }
     })
     if(game === undefined){
