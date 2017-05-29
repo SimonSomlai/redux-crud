@@ -4,7 +4,7 @@ import * as types from "../constants/ActionTypes.js"
 export const findGame = function(_id){
   return(dispatch) => {
     console.log('getting game with _id' + _id + ' through api call');
-    return fetch("http://localhost:3001/games/" + _id)
+    return fetch("http://redux-crud-rest.herokuapp.com/games" + _id)
     .then((response) => {
       return response.json()
     })
@@ -14,7 +14,7 @@ export const findGame = function(_id){
 export const fetchGames = function(){
   return (dispatch) => {
     console.log('getting all games through api call');
-    fetch("http://localhost:3001/games")
+    fetch("http://redux-crud-rest.herokuapp.com/games")
     .then((response) => {
       return response.json()
     })
@@ -29,7 +29,7 @@ export const createGame = function(game){
     const created_at = new Date()
     game.created_at = created_at
     console.log('creating game through api call');
-    return fetch("http://localhost:3001/games",{
+    return fetch("http://redux-crud-rest.herokuapp.com/games",{
         method: "post",
         body: JSON.stringify(game),
         dataType: 'json',
@@ -46,7 +46,7 @@ export const createGame = function(game){
 export const updateGame = function(newGame){
   return (dispatch) => {
     console.log('updating game through api call');
-    return fetch("http://localhost:3001/games/" + newGame._id,
+    return fetch("http://redux-crud-rest.herokuapp.com/games/" + newGame._id,
       {
       method: 'PATCH',
       headers: {
@@ -64,7 +64,7 @@ export const updateGame = function(newGame){
 export const deleteGame = function(_id) {
   return (dispatch) => {
     console.log('deleting game through api call');
-    return fetch("http://localhost:3001/games/" + _id,
+    return fetch("http://redux-crud-rest.herokuapp.com/games/" + _id,
       {method: 'delete'})
     .then((response) => {
       return response.json()}
