@@ -17,14 +17,17 @@ class GameDetail extends React.Component {
     const game = this.props.games.find((item) => {
       if(item._id === _id){
         return item
-        this.setState({game: item})
       }
     })
     if(game === undefined){
+      console.log("game wasn't found in the store!");
       const game = this.props.actions.findGame(_id)
       .then((data) => {
         this.setState({game: data})
       })
+    } else {
+      console.log("game was found in the store! Updating state!");
+      this.setState({game: game})
     }
   }
 
@@ -107,8 +110,6 @@ class GameDetail extends React.Component {
   }
 
   render() {
-    console.log('this.state', this.state);
-
     return (
       <div>
         {this.renderDetails()}
