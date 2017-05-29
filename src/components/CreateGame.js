@@ -42,7 +42,7 @@ class CreateGame extends React.Component {
       this.props.actions.createGame(this.state.game)
       .then((data) => {
         this.setState({loading: false});
-        window.location = "http://ec2-34-210-55-49.us-west-2.compute.amazonaws.com/games/"
+        window.location = "http://ec2-34-210-55-49.us-west-2.compute.amazonaws.com/games"
       })
     }
   }
