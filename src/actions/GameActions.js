@@ -4,7 +4,7 @@ import * as types from "../constants/ActionTypes.js"
 export const findGame = function(_id){
   return(dispatch) => {
     console.log('getting game with _id' + _id + ' through api call');
-    return fetch("http://redux-crud-rest.herokuapp.com/games" + _id)
+    return fetch("http://redux-crud-rest.herokuapp.com/games/" + _id)
     .then((response) => {
       return response.json()
     })
